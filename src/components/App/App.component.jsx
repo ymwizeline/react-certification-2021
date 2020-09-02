@@ -1,58 +1,53 @@
-import React, { useLayoutEffect } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import React from 'react';
+import Loader from 'react-loader-spinner';
+import PropTypes from 'prop-types';
 
+import UserPreferencesProvider from '../../providers/UserPreferences';
 import AuthProvider from '../../providers/Auth';
-import HomePage from '../../pages/Home';
-import LoginPage from '../../pages/Login';
-import NotFound from '../../pages/NotFound';
-import SecretPage from '../../pages/Secret';
-import Private from '../Private';
-import Fortune from '../Fortune';
-import Layout from '../Layout';
-import { random } from '../../utils/fns';
+import VideoProvider from '../../providers/Video';
+import { useGapi } from '../../utils/hooks/useGapi';
+
+import { ThemedApp } from './App.themed';
+import DivLoader from './App.styled';
+// import HomePage from '../../pages/Home';
+// import LoginPage from '../../pages/Login';
+// import NotFound from '../../pages/NotFound';
+// import SecretPage from '../../pages/Secret';
+// import Private from '../Private';
+// import Fortune from '../Fortune';
+// import Layout from '../Layout';
+// import { random } from '../../utils/fns';
 
 function App() {
-  useLayoutEffect(() => {
-    const { body } = document;
+  const gapi = useGapi();
 
-    function rotateBackground() {
-      const xPercent = random(100);
-      const yPercent = random(100);
-      body.style.setProperty('--bg-position', `${xPercent}% ${yPercent}%`);
-    }
+  // const currentTheme = isLightTheme ? lightTheme : darkTheme;
 
-    const intervalId = setInterval(rotateBackground, 3000);
-    body.addEventListener('click', rotateBackground);
-
-    return () => {
-      clearInterval(intervalId);
-      body.removeEventListener('click', rotateBackground);
-    };
-  }, []);
+  if (!gapi) {
+    return (
+      <DivLoader>
+        <Loader type="Circles" width={50} height={50} color="#556cd6" visible />
+      </DivLoader>
+    );
+  }
 
   return (
-    <BrowserRouter>
-      <AuthProvider>
-        <Layout>
-          <Switch>
-            <Route exact path="/">
-              <HomePage />
-            </Route>
-            <Route exact path="/login">
-              <LoginPage />
-            </Route>
-            <Private exact path="/secret">
-              <SecretPage />
-            </Private>
-            <Route path="*">
-              <NotFound />
-            </Route>
-          </Switch>
-          <Fortune />
-        </Layout>
-      </AuthProvider>
-    </BrowserRouter>
+    <AuthProvider>
+      {({ user }) => (
+        <VideoProvider>
+          <UserPreferencesProvider user={user}>
+            <ThemedApp>
+              <div>App</div>
+            </ThemedApp>
+          </UserPreferencesProvider>
+        </VideoProvider>
+      )}
+    </AuthProvider>
   );
 }
+
+AuthProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default App;
