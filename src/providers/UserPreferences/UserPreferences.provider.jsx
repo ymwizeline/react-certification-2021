@@ -1,5 +1,4 @@
 import React, { useReducer, useEffect, createContext, useContext } from 'react';
-import PropTypes from 'prop-types';
 
 import {
   addFavoriteVideoAction,
@@ -24,7 +23,7 @@ function getUserStorageKey(user) {
   return user ? `${userPreferencesStorageKey}-${user.id}` : '';
 }
 
-export const UserPreferencesProvider = ({ user, ...otherProps }) => {
+export const UserPreferencesProvider = ({ children, user, ...otherProps }) => {
   const [state, dispatch] = useReducer(userPreferencesReducer, {
     ...initialState,
     ...(localStorage.getItem(getUserStorageKey(user))
@@ -57,15 +56,18 @@ export const UserPreferencesProvider = ({ user, ...otherProps }) => {
     );
   }, [state.favoriteVideos, user, state.isLightTheme]);
 
-  return <UserPreferencesContext.Provider {...otherProps} value={value} />;
-};
+  function renderChildren() {
+    if (typeof children === 'function') {
+      return children(state);
+    }
+    return children;
+  }
 
-UserPreferencesProvider.propTypes = {
-  user: PropTypes.objectOf(PropTypes.any),
-};
-
-UserPreferencesProvider.defaultProps = {
-  user: null,
+  return (
+    <UserPreferencesContext.Provider {...otherProps} value={value}>
+      {renderChildren()}
+    </UserPreferencesContext.Provider>
+  );
 };
 
 export { useUserPreferencesContext };

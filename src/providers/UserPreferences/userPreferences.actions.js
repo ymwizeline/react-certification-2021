@@ -18,9 +18,8 @@ export const removeFavoriteVideoAction = (dispatch) => async (video) => {
   });
 };
 
-export const setInverseThemeAction = (dispatch) => (isLightTheme) => {
+export const setInverseThemeAction = (dispatch) => () => {
   dispatch({
     type: ACTIONS.SET_INVERSE_THEME,
-    payload: !isLightTheme,
   });
 };

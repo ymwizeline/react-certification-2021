@@ -1,27 +1,17 @@
 import React from 'react';
 import Loader from 'react-loader-spinner';
-import PropTypes from 'prop-types';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { ThemeProvider } from '@material-ui/core/styles';
 
 import UserPreferencesProvider from '../../providers/UserPreferences';
 import AuthProvider from '../../providers/Auth';
 import VideoProvider from '../../providers/Video';
 import { useGapi } from '../../utils/hooks/useGapi';
 
-import { ThemedApp } from './App.themed';
 import DivLoader from './App.styled';
-// import HomePage from '../../pages/Home';
-// import LoginPage from '../../pages/Login';
-// import NotFound from '../../pages/NotFound';
-// import SecretPage from '../../pages/Secret';
-// import Private from '../Private';
-// import Fortune from '../Fortune';
-// import Layout from '../Layout';
-// import { random } from '../../utils/fns';
 
 function App() {
   const gapi = useGapi();
-
-  // const currentTheme = isLightTheme ? lightTheme : darkTheme;
 
   if (!gapi) {
     return (
@@ -36,18 +26,17 @@ function App() {
       {({ user }) => (
         <VideoProvider>
           <UserPreferencesProvider user={user}>
-            <ThemedApp>
-              <div>App</div>
-            </ThemedApp>
+            {({ theme }) => (
+              <ThemeProvider theme={theme}>
+                <CssBaseline />
+                <div>App</div>
+              </ThemeProvider>
+            )}
           </UserPreferencesProvider>
         </VideoProvider>
       )}
     </AuthProvider>
   );
 }
-
-AuthProvider.propTypes = {
-  children: PropTypes.node.isRequired,
-};
 
 export default App;

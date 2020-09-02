@@ -1,8 +1,10 @@
 import { ACTIONS } from './userPreferences.actions';
+import { lightTheme, darkTheme } from '../../utils/theme';
 
 export const initialState = {
   favoriteVideos: [],
   isLightTheme: true,
+  theme: lightTheme,
 };
 
 export function userPreferencesReducer(state, action) {
@@ -24,7 +26,8 @@ export function userPreferencesReducer(state, action) {
     case ACTIONS.SET_INVERSE_THEME:
       return {
         ...state,
-        isLightTheme: payload,
+        isLightTheme: !state.isLightTheme,
+        theme: state.isLightTheme ? darkTheme : lightTheme,
       };
     default:
       throw new Error(`Invalid action "${type}"`);

@@ -1,5 +1,4 @@
 import React, { useReducer, useEffect, useContext } from 'react';
-import PropTypes from 'prop-types';
 
 import { loginAction, logoutAction } from './auth.actions';
 import { authReducer, initialState } from './auth.reducer';
@@ -52,10 +51,6 @@ function AuthProvider({ children, ...otherProps }) {
     </AuthContext.Provider>
   );
 }
-
-AuthProvider.propTypes = {
-  children: PropTypes.node.isRequired,
-};
 
 export { useAuth };
 export default AuthProvider;
