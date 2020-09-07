@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useContext, useCallback } from 'react';
+import React, { useReducer, useEffect, useContext } from 'react';
 
-import { AUTH_STORAGE_KEY } from '../../utils/constants';
-import { storage } from '../../utils/storage';
+import { loginAction, logoutAction } from './auth.actions';
+import { authReducer, initialState } from './auth.reducer';
 
 const AuthContext = React.createContext(null);
 
@@ -13,29 +13,41 @@ function useAuth() {
   return context;
 }
 
-function AuthProvider({ children }) {
-  const [authenticated, setAuthenticated] = useState(false);
+const authStorageKey = 'REACT-CHALLENGE-AUTH';
+
+function AuthProvider({ children, ...otherProps }) {
+  const [state, dispatch] = useReducer(authReducer, {
+    ...initialState,
+    user: localStorage.getItem(authStorageKey)
+      ? JSON.parse(localStorage.getItem(authStorageKey))
+      : null,
+  });
+
+  const value = {
+    ...state,
+    login: loginAction(dispatch),
+    logout: logoutAction(dispatch),
+    isLoggedIn: Boolean(state.user),
+  };
 
   useEffect(() => {
-    const lastAuthState = storage.get(AUTH_STORAGE_KEY);
-    const isAuthenticated = Boolean(lastAuthState);
+    if (state.user) {
+      localStorage.setItem(authStorageKey, JSON.stringify(state.user));
+    } else {
+      localStorage.removeItem(authStorageKey);
+    }
+  }, [state.user]);
 
-    setAuthenticated(isAuthenticated);
-  }, []);
-
-  const login = useCallback(() => {
-    setAuthenticated(true);
-    storage.set(AUTH_STORAGE_KEY, true);
-  }, []);
-
-  const logout = useCallback(() => {
-    setAuthenticated(false);
-    storage.set(AUTH_STORAGE_KEY, false);
-  }, []);
+  function renderChildren() {
+    if (typeof children === 'function') {
+      return children(state);
+    }
+    return children;
+  }
 
   return (
-    <AuthContext.Provider value={{ login, logout, authenticated }}>
-      {children}
+    <AuthContext.Provider {...otherProps} value={value}>
+      {renderChildren()}
     </AuthContext.Provider>
   );
 }
