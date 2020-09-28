@@ -4,7 +4,7 @@ import { Menu } from "@material-ui/icons";
 import * as React from "react";
 import { useState } from "react";
 import { Link } from 'react-router-dom';
-  
+
 const useStyles = makeStyles({
     list: {
         width: 250
@@ -40,10 +40,14 @@ const SideDrawer = () => {
         >
             <List component="nav">
                 <ListItem button>
-                    <ListItemText primary={"Home"}></ListItemText>
+                    <ListItemText primary={"Home"}>
+                        <Link to={'/'}></Link>
+                    </ListItemText>
                 </ListItem>
                 <ListItem button>
-                    <ListItemText primary={"Favorites"}></ListItemText>
+                    <ListItemText primary={"Favorites"}>
+                        <Link to={'/favorites'}></Link>
+                    </ListItemText>
                 </ListItem>
             </List>
         </div>
@@ -58,7 +62,6 @@ const SideDrawer = () => {
             >
                 <Menu fontSize="small" style={{ color: `white` }} />
             </IconButton>
-
             <Drawer
                 anchor="left"
                 open={state.left}
