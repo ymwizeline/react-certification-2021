@@ -25,7 +25,6 @@ const reducer = (state, action) => {
 }
 
 export function APIContextProvider({ children, query }) {
-    const [results, setResults] = useState([]);
     const [state, dispatch] = useReducer(reducer, InitialState)
     //const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState();
@@ -38,8 +37,7 @@ export function APIContextProvider({ children, query }) {
               const res = await fetch(`${process.env.REACT_APP_YOUTUBE_URL}${query}&type=video&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`);
               const json = await res.json();
               console.log("json data: ", json);
-              setResults(json.items);
-              dispatch({ type: 'SET_VIDEOS', payload: results})
+              dispatch({ type: 'SET_VIDEOS', payload: json.items})
               //setIsLoading(false);
             } catch (error) {
               setError(error);
