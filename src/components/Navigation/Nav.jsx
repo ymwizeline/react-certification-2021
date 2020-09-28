@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useVideos } from '../../providers/Videos/ApiContext';
-import styled from 'styled-components';
-import useYoutubeApi from '../../API/useYoutubeApi';
-import SecretPage from '../../pages/Secret/Secret.page'
 import SideDrawer from './Drawer';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';

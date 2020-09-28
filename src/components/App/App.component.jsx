@@ -1,6 +1,7 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { APIContextProvider } from '../../providers/Videos/ApiContext'
+import Nav from '../Navigation/Nav';
 import AuthProvider from '../../providers/Auth';
 import LoginPage from '../../pages/Login';
 import NotFound from '../../pages/NotFound';
@@ -57,7 +58,6 @@ function App() {
                   <NotFound />
                 </Route>
               </Switch>
-              <Fortune />
             </Layout>
         </APIContextProvider>
       </AuthProvider>
