@@ -36,14 +36,11 @@ function App() {
         <Layout>
           <Switch>
             <Route exact path="/">
-              <HomePage />
+              <SecretPage />
             </Route>
             <Route exact path="/login">
               <LoginPage />
             </Route>
-            <Private exact path="/secret">
-              <SecretPage />
-            </Private>
             <Route path="*">
               <NotFound />
             </Route>

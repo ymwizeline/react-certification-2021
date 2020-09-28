@@ -1,23 +1,13 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { Suspense, lazy } from 'react';
+// import CircularIndeterminate from '../../utils/Loading/ProgressCircle';
+import List from '../../components/Videos/List';
+
+// const List = lazy(() => import('../../components/Videos/List'))
 
 function SecretPage() {
+
   return (
-    <section>
-      <pre>
-        welcome, voyager...
-        <Link to="/"> ← go back</Link>
-      </pre>
-      <iframe
-        width="800"
-        height="450"
-        allowFullScreen
-        frameBorder="0"
-        title="rick roll"
-        src="https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0&autoplay=1"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-      />
-    </section>
+      <List></List>
   );
 }
 
