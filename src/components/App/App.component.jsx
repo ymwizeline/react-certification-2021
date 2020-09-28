@@ -1,6 +1,6 @@
 import React, { useLayoutEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-
+import { APIContextProvider } from '../../providers/Videos/ApiContext'
 import AuthProvider from '../../providers/Auth';
 import LoginPage from '../../pages/Login';
 import NotFound from '../../pages/NotFound';
@@ -40,24 +40,26 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <Nav searchKey={searchKey} setSearchKey={setSearchKey} submitSearch={search}/>
-          <Layout>
-            <Switch>
-              <Route exact path="/">
-                <SecretPage />
-              </Route>
-              <Route exact path="/login">
-                <LoginPage />
-              </Route>
-              <Private exact path="/favorites">
-                <SecretPage />
-              </Private>
-              <Route path="*">
-                <NotFound />
-              </Route>
-            </Switch>
-            <Fortune />
-          </Layout>
+        <APIContextProvider query={query}>
+          <Nav searchKey={searchKey} setSearchKey={setSearchKey} submitSearch={search}/>
+            <Layout>
+              <Switch>
+                <Route exact path="/">
+                  <SecretPage />
+                </Route>
+                <Route exact path="/login">
+                  <LoginPage />
+                </Route>
+                <Private exact path="/favorites">
+                  <SecretPage />
+                </Private>
+                <Route path="*">
+                  <NotFound />
+                </Route>
+              </Switch>
+              <Fortune />
+            </Layout>
+        </APIContextProvider>
       </AuthProvider>
     </BrowserRouter>
   );
