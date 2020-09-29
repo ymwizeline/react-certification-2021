@@ -6,12 +6,14 @@ import AuthProvider from '../../providers/Auth';
 import LoginPage from '../../pages/Login';
 import NotFound from '../../pages/NotFound';
 import SecretPage from '../../pages/Secret';
+import HomePage from '../../pages/Home';
 import Private from '../Private';
 import Fortune from '../Fortune';
 import Layout from '../Layout';
 import { random } from '../../utils/fns';
 import Player from '../Videos/Player';
 import { FavoritesProvider } from '../../providers/Favorites/Favorites.provider';
+import Favorites from '../Favorites/Favorites';
 
 function App() {
   const [ searchKey, setSearchKey ] = useState("Wizeline");
@@ -49,17 +51,17 @@ function App() {
             <Layout>
               <Switch>
                 <Route exact path="/">
-                  <SecretPage />
+                  <HomePage />
                 </Route>
                 <Route exact path="/login">
                   <LoginPage />
                 </Route>
+                <Route path="/favorites">
+                  <SecretPage />
+                </Route>
                 <Route path="/:id">
                   <Player/>
                 </Route>
-                <Private exact path="/favorites">
-                  <SecretPage />
-                </Private>
                 <Route path="*">
                   <NotFound />
                 </Route>

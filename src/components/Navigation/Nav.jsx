@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useVideos } from '../../providers/Videos/ApiContext';
+import { useAuth } from '../../providers/Auth';
 import SideDrawer from './Drawer';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -8,6 +9,9 @@ import IconButton from '@material-ui/core/IconButton';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
+import HomeIcon from '@material-ui/icons/Home';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import { Link } from 'react-router-dom';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -69,23 +73,19 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Nav = ({ searchKey, setSearchKey, submitSearch}) => {
-    // const [ searchKey, setSearchKey ] = useState("Wizeline");
-    // const [ result, setResult ] = useState(searchKey);
-    // const videos = useYoutubeApi(result);
-    // const { state, dispatch } = useVideos();
-    // console.log(state);
     const classes = useStyles();
-
-    // const search = event => {
-    //     event.preventDefault();
-    //     setResult(searchKey);
-    // }
-
+    const { authenticated } = useAuth();
     return (
         <>
         <AppBar position="static">
             <Toolbar>
                 <SideDrawer></SideDrawer>
+                <Link to={'/'}>
+                    <HomeIcon />
+                </Link>
+                    <Link to={'/favorites'}>
+                        <FavoriteIcon />
+                    </Link>
                 <div className={classes.search}>
                     <div className={classes.searchIcon}>
                         <SearchIcon />
