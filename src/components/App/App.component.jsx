@@ -10,6 +10,8 @@ import Private from '../Private';
 import Fortune from '../Fortune';
 import Layout from '../Layout';
 import { random } from '../../utils/fns';
+import Player from '../Videos/Player';
+import { FavoritesProvider } from '../../providers/Favorites/Favorites.provider';
 
 function App() {
   const [ searchKey, setSearchKey ] = useState("Wizeline");
@@ -42,7 +44,8 @@ function App() {
     <BrowserRouter>
       <AuthProvider>
         <APIContextProvider query={query}>
-          <Nav searchKey={searchKey} setSearchKey={setSearchKey} submitSearch={search}/>
+          <FavoritesProvider>
+            <Nav searchKey={searchKey} setSearchKey={setSearchKey} submitSearch={search}/>
             <Layout>
               <Switch>
                 <Route exact path="/">
@@ -50,6 +53,9 @@ function App() {
                 </Route>
                 <Route exact path="/login">
                   <LoginPage />
+                </Route>
+                <Route path="/:id">
+                  <Player/>
                 </Route>
                 <Private exact path="/favorites">
                   <SecretPage />
@@ -59,6 +65,7 @@ function App() {
                 </Route>
               </Switch>
             </Layout>
+          </FavoritesProvider>
         </APIContextProvider>
       </AuthProvider>
     </BrowserRouter>
