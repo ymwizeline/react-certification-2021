@@ -56,10 +56,13 @@ function App() {
                 <Route exact path="/login">
                   <LoginPage />
                 </Route>
-                <Route path="/favorites">
+                <Route exact path="/favorites">
                   <SecretPage />
                 </Route>
                 <Route path="/:id">
+                  <Player/>
+                </Route>
+                <Route path="/favorites/:id">
                   <Player/>
                 </Route>
                 <Route path="*">

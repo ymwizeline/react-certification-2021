@@ -3,13 +3,13 @@ import styled from "styled-components";
 import { useFavorites, FavoritesProvider } from "../../providers/Favorites/Favorites.provider";
 
 const AddFavorite = styled.button`
-    background-color: #90252A;
+    background-color: #3f51b5;
     color: white;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 13px;
     &:hover {
         background-color: white;
-        color: #90252A;
+        color: #3f51b5;
     }
 `;
 
@@ -20,7 +20,7 @@ const FavoritesButton = () => {
 
     return (
         <AddFavorite onClick={ () => dispatch({ type: message, payload: state.currentVideo}) }>
-            {isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+            {isFavorite ? 'REMOVE FROM FAVORITES' : 'ADD TO FAVORITES'}
         </AddFavorite>
     )
 }
