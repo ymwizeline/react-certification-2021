@@ -79,7 +79,6 @@ const Nav = ({ searchKey, setSearchKey, submitSearch}) => {
         <>
         <AppBar position="static">
             <Toolbar>
-                <SideDrawer></SideDrawer>
                 <Link to={'/'}>
                     <HomeIcon />
                 </Link>
