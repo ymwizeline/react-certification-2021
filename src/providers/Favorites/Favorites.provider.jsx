@@ -39,10 +39,10 @@ export const useFavorites = () => {
 }
 
 export const FavoritesProvider = ({ children }) => {
-    const [state, dispatch] = useReducer(reducer, InitialState);
+    const [favState, favDispatch] = useReducer(reducer, InitialState);
 
     return (
-        <FavoritesContext.Provider value={{ state, dispatch }}>
+        <FavoritesContext.Provider value={{ favState, favDispatch }}>
             {children}
         </FavoritesContext.Provider>
     );

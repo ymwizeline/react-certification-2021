@@ -47,20 +47,20 @@ const FooterDescription = styled.p`
     color: #4e5052;
 `;
 
-const Player = () => {
-    const { state, dispatch } = useFavorites();
+const Player = ({ from }) => {
+    const { favState, favDispatch } = useFavorites();
 
     return (
         <VideoContainer>
             <VideoPlayerContainer>
-                <VideoPlayer src={`https://www.youtube.com/embed/${state.currentVideo.id.videoId}`}/>
+                <VideoPlayer src={`https://www.youtube.com/embed/${favState.currentVideo.id.videoId}`}/>
                     <VideoFooter>
-                        <Title>{state.currentVideo.snippet.title}</Title>
+                        <Title>{favState.currentVideo.snippet.title}</Title>
                         <FavoritesButton/>
                     </VideoFooter>
-                    <FooterDescription>{state.currentVideo.snippet.description}</FooterDescription>
+                    <FooterDescription>{favState.currentVideo.snippet.description}</FooterDescription>
             </VideoPlayerContainer>
-            <SideList/>
+            <SideList from={from}/>
         </VideoContainer>
     )
 

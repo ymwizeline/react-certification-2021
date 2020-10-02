@@ -14,12 +14,12 @@ const AddFavorite = styled.button`
 `;
 
 const FavoritesButton = () => {
-    const { state, dispatch } = useFavorites();
-    const isFavorite = state.favorites.find((element) => element.id.videoId == state.currentVideo.id.videoId) ? true : false;
+    const { favState, favDispatch } = useFavorites();
+    const isFavorite = favState.favorites.find((element) => element.id.videoId == favState.currentVideo.id.videoId) ? true : false;
     const message = isFavorite ? 'REMOVE_FAVORITE' : 'ADD_FAVORITE'
 
     return (
-        <AddFavorite onClick={ () => dispatch({ type: message, payload: state.currentVideo}) }>
+        <AddFavorite onClick={ () => favDispatch({ type: message, payload: favState.currentVideo}) }>
             {isFavorite ? 'REMOVE FROM FAVORITES' : 'ADD TO FAVORITES'}
         </AddFavorite>
     )

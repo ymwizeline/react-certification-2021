@@ -7,7 +7,7 @@ import List from '../../components/Videos/List';
 function HomePage() {
 
   return (
-      <List></List>
+      <List/>
   );
 }
 

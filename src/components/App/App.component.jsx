@@ -59,11 +59,11 @@ function App() {
                 <Route exact path="/favorites">
                   <SecretPage />
                 </Route>
-                <Route path="/:id">
-                  <Player/>
-                </Route>
                 <Route path="/favorites/:id">
-                  <Player/>
+                  <Player from={'favorites'}/>
+                </Route>
+                <Route path="/:id">
+                  <Player from={'root'}/>
                 </Route>
                 <Route path="*">
                   <NotFound />

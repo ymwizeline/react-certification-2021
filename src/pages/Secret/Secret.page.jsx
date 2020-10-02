@@ -7,7 +7,7 @@ import Favorites from '../../components/Favorites/Favorites';
 function SecretPage() {
 
   return (
-      <Favorites></Favorites>
+      <Favorites/>
   );
 }
 
