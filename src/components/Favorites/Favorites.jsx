@@ -16,11 +16,11 @@ const Grid = styled.div`
 `;
 
 const Favorites = () => {
-    const { state, dispatch } = useFavorites();
+    const { favState, favDispatch } = useFavorites();
 
     return (
         <Grid>
-            {state.favorites.map((video) => {
+            {favState.favorites.map((video) => {
                 return (
                     <Detail video={video}></Detail>
                 );

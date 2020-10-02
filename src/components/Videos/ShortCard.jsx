@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
+import { Link } from 'react-router-relative-link'
+import { useFavorites } from '../../providers/Favorites/Favorites.provider';
 
 const Card = styled.div`
     border-radius: 8px;
@@ -27,6 +29,7 @@ const Title = styled.p`
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
     font-size: 1rem;
     margin: auto;
+    color: black;
 `;
 
 
@@ -47,15 +50,17 @@ const Description = styled.p`
 `;
 
 const ShortCard = ({ video }) => {
+    const { favState, favDispatch } = useFavorites();
     return (
-        <Card>
-            <Thumbnail src={video.snippet.thumbnails.default.url}></Thumbnail>
-            <DetailsContainer>
-                <Title>{video.snippet.title}</Title>
-                <Description>{video.snippet.description}</Description>
-            </DetailsContainer>
-
-        </Card>
+        <Link to={`${video.id.videoId}`} onClick={() => favDispatch({ type: 'SET_CURRENT_VIDEO', payload: video})}>
+            <Card>
+                <Thumbnail src={video.snippet.thumbnails.default.url}></Thumbnail>
+                <DetailsContainer>
+                    <Title>{video.snippet.title}</Title>
+                    <Description>{video.snippet.description}</Description>
+                </DetailsContainer>
+            </Card>
+        </Link>
     )
 }
 

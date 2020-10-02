@@ -35,6 +35,7 @@ const Title = styled.h4`
     line-height: 1.6;
     letter-spacing: 0.0075em;
     margin-bottom: 0.35em;
+    color: black;
 `;
 
 const Description = styled.p`

@@ -18,18 +18,12 @@ const Grid = styled.div`
 const List = () => {
     const { state, dispatch } = useYoutubeApi();
     
-    // if(state.isLoading) {
-    //     return (
-    //         <CircularIndeterminate></CircularIndeterminate>
-    //       )
-    // };
-
     console.log("state in list: ", state)
     return (
         <Grid>
             {state.videos.map((video) => {
                 return (
-                    <Detail video={video}></Detail>
+                    <Detail video={video}/>
                 );
             })}
         </Grid>
