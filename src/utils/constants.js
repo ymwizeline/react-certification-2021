@@ -1,3 +1,2 @@
-const AUTH_STORAGE_KEY = 'wa_cert_authenticated';
-
+const AUTH_STORAGE_KEY = false;
 export { AUTH_STORAGE_KEY };

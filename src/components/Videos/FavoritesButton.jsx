@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from "styled-components";
 import { useFavorites, FavoritesProvider } from "../../providers/Favorites/Favorites.provider";
+//import { useAuth } from '../../providers/Auth';
 
 const AddFavorite = styled.button`
     background-color: #3f51b5;
@@ -17,6 +18,7 @@ const FavoritesButton = () => {
     const { favState, favDispatch } = useFavorites();
     const isFavorite = favState.favorites.find((element) => element.id.videoId == favState.currentVideo.id.videoId) ? true : false;
     const message = isFavorite ? 'REMOVE_FAVORITE' : 'ADD_FAVORITE'
+    //const { authenticated } = useAuth();
 
     return (
         <AddFavorite onClick={ () => favDispatch({ type: message, payload: favState.currentVideo}) }>

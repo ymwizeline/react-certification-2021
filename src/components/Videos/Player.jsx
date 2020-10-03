@@ -4,6 +4,7 @@ import { Title } from './Card';
 import { useFavorites } from '../../providers/Favorites/Favorites.provider';
 import FavoritesButton from './FavoritesButton';
 import SideList from './SideList';
+import { useAuth } from '../../providers/Auth';
 
 const VideoContainer = styled.div`
     width: 100%;
@@ -49,6 +50,8 @@ const FooterDescription = styled.p`
 
 const Player = ({ from }) => {
     const { favState, favDispatch } = useFavorites();
+    const { authenticated } = useAuth();
+    console.log("Auth? ", authenticated);
 
     return (
         <VideoContainer>
@@ -56,7 +59,7 @@ const Player = ({ from }) => {
                 <VideoPlayer src={`https://www.youtube.com/embed/${favState.currentVideo.id.videoId}`}/>
                     <VideoFooter>
                         <Title>{favState.currentVideo.snippet.title}</Title>
-                        <FavoritesButton/>
+                        { authenticated && <FavoritesButton/>}
                     </VideoFooter>
                     <FooterDescription>{favState.currentVideo.snippet.description}</FooterDescription>
             </VideoPlayerContainer>
