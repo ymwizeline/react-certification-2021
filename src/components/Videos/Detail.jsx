@@ -5,9 +5,9 @@ import { Card, CardBody, Thumbnail, Title, Description } from './Card';
 import { useFavorites } from '../../providers/Favorites/Favorites.provider';
 
 const Detail = ({ video }) => {
-    const { favState, favDispatch } = useFavorites();
+    const { favDispatch } = useFavorites();
     return (
-        <Link to={`${video.id.videoId}`} onClick={() => favDispatch({ type: 'SET_CURRENT_VIDEO', payload: video})}>
+        <Link key={video.id.videoId} to={`${video.id.videoId}`} onClick={() => favDispatch({ type: 'SET_CURRENT_VIDEO', payload: video})}>
             <Card>
                 <Thumbnail src={video.snippet.thumbnails.medium.url}></Thumbnail>
                 <CardBody>

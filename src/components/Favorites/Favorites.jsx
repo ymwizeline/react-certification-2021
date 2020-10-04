@@ -22,7 +22,7 @@ const Favorites = () => {
         <Grid>
             {favState.favorites.map((video) => {
                 return (
-                    <Detail video={video}></Detail>
+                    <Detail key={video.id.videoId} video={video}></Detail>
                 );
             })}
         </Grid>

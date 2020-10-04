@@ -20,7 +20,7 @@ const SideList = ({ from }) => {
         <SideGrid>
             {videos.map((video) => {
                 return (
-                    <ShortCard video={video}></ShortCard>
+                    <ShortCard key={video.id.videoId} video={video}></ShortCard>
                 );
             })}
         </SideGrid>

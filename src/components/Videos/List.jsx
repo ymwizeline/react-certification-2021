@@ -23,7 +23,7 @@ const List = () => {
         <Grid>
             {state.videos.map((video) => {
                 return (
-                    <Detail video={video}/>
+                    <Detail key={video.id.videoId} video={video}/>
                 );
             })}
         </Grid>
