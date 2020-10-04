@@ -2,8 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import Detail from './Detail';
 import { useYoutubeApi } from '../../providers/Videos/ApiContext';
-//import CircularIndeterminate from '../../utils/Loading/ProgressCircle';
-//import results from '../../assets/results';
+;
 
 const Grid = styled.div`
     display: flex;
@@ -16,9 +15,8 @@ const Grid = styled.div`
 `;
 
 const List = () => {
-    const { state, dispatch } = useYoutubeApi();
+    const { state } = useYoutubeApi();
     
-    console.log("state in list: ", state)
     return (
         <Grid>
             {state.videos.map((video) => {

@@ -1,5 +1,3 @@
-// login.api.js
-
 const mockedUser = {
   id: '123',
   name: 'Wizeline',
@@ -8,7 +6,6 @@ const mockedUser = {
 };
 
 export default async function loginApi(username, password) {
-  // console.log("login credentials: ", username, password)
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (username === 'wizeline' && password === 'Rocks!') {

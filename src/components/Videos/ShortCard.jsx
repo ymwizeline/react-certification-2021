@@ -50,7 +50,7 @@ const Description = styled.p`
 `;
 
 const ShortCard = ({ video }) => {
-    const { favState, favDispatch } = useFavorites();
+    const { favDispatch } = useFavorites();
     return (
         <Link to={`${video.id.videoId}`} onClick={() => favDispatch({ type: 'SET_CURRENT_VIDEO', payload: video})}>
             <Card>

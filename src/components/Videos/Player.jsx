@@ -49,9 +49,8 @@ const FooterDescription = styled.p`
 `;
 
 const Player = ({ from }) => {
-    const { favState, favDispatch } = useFavorites();
+    const { favState } = useFavorites();
     const { authenticated } = useAuth();
-    console.log("Auth? ", authenticated);
 
     return (
         <VideoContainer>

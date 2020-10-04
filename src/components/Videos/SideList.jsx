@@ -11,10 +11,10 @@ const SideGrid = styled.div`
 `;
 
 const SideList = ({ from }) => {
-    const { favState, favDispatch } = useFavorites();
-    const { state, dispatch } =  useYoutubeApi();
+    const { favState } = useFavorites();
+    const { state} =  useYoutubeApi();
 
-    const videos = from == 'root' ? state.videos : favState.favorites;
+    const videos = from === 'root' ? state.videos : favState.favorites;
 
     return (
         <SideGrid>

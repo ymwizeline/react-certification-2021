@@ -2,8 +2,6 @@ import React from 'react';
 import styled from "styled-components";
 import Detail from '../Videos/Detail';
 import { useFavorites } from '../../providers/Favorites/Favorites.provider';
-//import { useYoutubeApi } from '../../providers/Videos/ApiContext';
-
 
 const Grid = styled.div`
     display: flex;
@@ -16,7 +14,7 @@ const Grid = styled.div`
 `;
 
 const Favorites = () => {
-    const { favState, favDispatch } = useFavorites();
+    const { favState } = useFavorites();
 
     return (
         <Grid>

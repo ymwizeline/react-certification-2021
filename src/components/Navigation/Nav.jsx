@@ -21,13 +21,11 @@ const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginRight: theme.spacing(2),
   },
-  title: {
-    flexGrow: 1,
-  },
   grow: {
     flexGrow: 1,
   },
   title: {
+    flexGrow: 1,
     display: 'none',
     [theme.breakpoints.up('sm')]: {
       display: 'block',
@@ -74,7 +72,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Nav = ({ searchKey, setSearchKey, submitSearch }) => {
   const classes = useStyles();
-  const { login, logout, authenticated } = useAuth();
+  const { logout, authenticated } = useAuth();
   const [anchorEl, setAnchorEl] = useState(null);
   const [open, setOpen] = React.useState(false);
   const openMenu = Boolean(anchorEl);

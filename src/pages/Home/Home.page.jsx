@@ -1,8 +1,5 @@
-import React, { Suspense, lazy } from 'react';
-// import CircularIndeterminate from '../../utils/Loading/ProgressCircle';
+import React from 'react';
 import List from '../../components/Videos/List';
-
-// const List = lazy(() => import('../../components/Videos/List'))
 
 function HomePage() {
 

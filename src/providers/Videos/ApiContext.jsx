@@ -26,19 +26,15 @@ const reducer = (state, action) => {
 
 export function APIContextProvider({ children, query }) {
     const [state, dispatch] = useReducer(reducer, InitialState)
-    //const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState();
 
     useEffect(() => {
-        console.log("API effect", query);
         dispatch({ type: 'SET_SEARCH_QUERY', payload: query})
         const fetchData = async () => {
             try {
               const res = await fetch(`${process.env.REACT_APP_YOUTUBE_URL}${query}&type=video&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`);
               const json = await res.json();
-              console.log("json data: ", json);
               dispatch({ type: 'SET_VIDEOS', payload: json.items})
-              //setIsLoading(false);
             } catch (error) {
               setError(error);
             }
@@ -46,9 +42,6 @@ export function APIContextProvider({ children, query }) {
           fetchData();
     }, [query]);
 
-    // console.log("loading: ", isLoading);
-    // return { isLoading, results};
-    console.log("state before return: ", state);
     return (
         <APIContext.Provider
           value={{ state, dispatch }}>

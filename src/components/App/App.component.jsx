@@ -7,13 +7,10 @@ import LoginPage from '../../pages/Login';
 import NotFound from '../../pages/NotFound';
 import SecretPage from '../../pages/Secret';
 import HomePage from '../../pages/Home';
-import Private from '../Private';
-import Fortune from '../Fortune';
 import Layout from '../Layout';
 import { random } from '../../utils/fns';
 import Player from '../Videos/Player';
 import { FavoritesProvider } from '../../providers/Favorites/Favorites.provider';
-import Favorites from '../Favorites/Favorites';
 
 function App() {
   const [ searchKey, setSearchKey ] = useState("Wizeline");
