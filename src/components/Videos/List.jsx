@@ -18,7 +18,7 @@ const List = () => {
     const { state } = useYoutubeApi();
     
     return (
-        <Grid>
+        <Grid data-testid="grid">
             {state.videos.map((video) => {
                 return (
                     <Detail key={video.id.videoId} video={video}/>

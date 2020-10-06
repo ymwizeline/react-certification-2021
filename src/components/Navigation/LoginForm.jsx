@@ -34,6 +34,7 @@ export default function FormDialog() {
         <DialogContent>
           <form id="login" onSubmit={submitLogin}>
             <TextField
+              data-testid="userName"
               autoFocus
               margin="dense"
               id="name"
@@ -44,6 +45,7 @@ export default function FormDialog() {
               onChange={(e) => setUsername(e.target.value)}
             />
             <TextField
+              data-testid="password"
               autoFocus
               margin="dense"
               id="pass"
@@ -56,10 +58,10 @@ export default function FormDialog() {
           </form>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <Button data-testid="logout"  onClick={handleClose} color="primary">
             Cancel
           </Button>
-          <Button type="submit" onClick={handleClose} color="primary" form="login">
+          <Button data-testid="login" type="submit" onClick={handleClose} color="primary" form="login">
             Login
           </Button>
         </DialogActions>

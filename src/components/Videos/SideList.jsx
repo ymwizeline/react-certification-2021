@@ -17,7 +17,7 @@ const SideList = ({ from }) => {
     const videos = from === 'root' ? state.videos : favState.favorites;
 
     return (
-        <SideGrid>
+        <SideGrid data-testid="side-grid">
             {videos.map((video) => {
                 return (
                     <ShortCard key={video.id.videoId} video={video}></ShortCard>

@@ -54,7 +54,7 @@ const Player = ({ from }) => {
 
     return (
         <VideoContainer>
-            <VideoPlayerContainer>
+            <VideoPlayerContainer data-testid="video-container">
                 <VideoPlayer src={`https://www.youtube.com/embed/${favState.currentVideo.id.videoId}`}/>
                     <VideoFooter>
                         <Title>{favState.currentVideo.snippet.title}</Title>

@@ -17,7 +17,7 @@ const Favorites = () => {
     const { favState } = useFavorites();
 
     return (
-        <Grid>
+        <Grid data-testid="grid">
             {favState.favorites.map((video) => {
                 return (
                     <Detail key={video.id.videoId} video={video}></Detail>
