@@ -8,7 +8,6 @@ import LoginPage from '../../pages/Login';
 import NotFound from '../../pages/NotFound';
 import SecretPage from '../../pages/Secret';
 import Private from '../Private';
-import Fortune from '../Fortune';
 import Layout from '../Layout';
 
 const theme = {
@@ -37,7 +36,6 @@ function App() {
                 <NotFound />
               </Route>
             </Switch>
-            <Fortune />
           </Layout>
         </ThemeProvider>
       </AuthProvider>
