@@ -4,8 +4,8 @@ import styled from 'styled-components';
 const StyledCard = styled.div`
   margin: 15px;
   border-radius: 5px;
-  width: 360px;
-  height: 390px;
+  width: 340px;
+  height: 340px;
   overflow: hidden;
   border-left: 1px solid #ededed;
   border-right: 1px solid #ededed;
@@ -41,13 +41,12 @@ const VideoCard = ({ data }) => {
   const {
     snippet: { title, description, thumbnails },
   } = data;
-  const formatTitle = (string) => string.replace('&#39;', "'");
 
   return (
     <StyledCard>
       <Image src={thumbnails.high.url} />
       <Info>
-        <Title>{formatTitle(title)}</Title>
+        <Title>{title}</Title>
         <Description>{description}</Description>
       </Info>
     </StyledCard>
