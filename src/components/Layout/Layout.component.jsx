@@ -1,13 +1,13 @@
 import React from 'react';
 import Header from '../Header';
-import './Layout.styles.css';
+import { Container } from './styled';
 
 function Layout({ children }) {
   return (
-    <main className="container">
+    <Container>
       <Header />
       {children}
-    </main>
+    </Container>
   );
 }
 

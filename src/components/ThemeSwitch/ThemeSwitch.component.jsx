@@ -1,17 +1,12 @@
 import React from 'react';
-import styled from 'styled-components';
 import Switch from '@material-ui/core/Switch';
+import { Container } from './styled';
 import SunIcon from '../Icons/SunIcon';
 import MoonIcon from '../Icons/MoonIcon';
 
-const SwitchContainer = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
 const ThemeSwitch = () => {
   return (
-    <SwitchContainer>
+    <Container>
       <MoonIcon />
       <Switch
         defaultChecked
@@ -19,7 +14,7 @@ const ThemeSwitch = () => {
         inputProps={{ 'aria-label': 'checkbox with default color' }}
       />
       <SunIcon />
-    </SwitchContainer>
+    </Container>
   );
 };
 
