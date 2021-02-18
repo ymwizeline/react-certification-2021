@@ -8,7 +8,7 @@ const VideoCard = ({ data }) => {
 
   return (
     <Card>
-      <Image src={thumbnails.high.url} />
+      <Image src={thumbnails.high.url} alt={title} />
       <Info>
         <Title>{title}</Title>
         <Description>{description}</Description>
