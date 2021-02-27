@@ -6,7 +6,7 @@ const Content = ({ items }) => {
   return (
     <Container>
       {items.map((item) => (
-        <VideoCard key={item.etag} data={item} />
+        <VideoCard key={item.id || item.publishedAt} data={item} />
       ))}
     </Container>
   );

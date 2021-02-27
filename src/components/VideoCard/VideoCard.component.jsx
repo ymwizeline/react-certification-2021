@@ -1,14 +1,13 @@
 import React from 'react';
 import { Card, Image, Info, Title, Description } from './styled';
+import { formatTitleWithApostrophe } from '../../utils/fns';
 
 const VideoCard = ({ data }) => {
   const {
-    snippet: {
-      title,
-      description,
-      thumbnails: {
-        high: { url },
-      },
+    title,
+    description,
+    thumbnails: {
+      high: { url },
     },
   } = data;
 
@@ -16,7 +15,7 @@ const VideoCard = ({ data }) => {
     <Card>
       <Image src={url} alt={title} />
       <Info>
-        <Title>{title}</Title>
+        <Title>{formatTitleWithApostrophe(title)}</Title>
         <Description>{description}</Description>
       </Info>
     </Card>

@@ -1,16 +1,19 @@
-import React, { useRef } from 'react';
+import React, { useRef, useContext } from 'react';
+import { Context } from '../../context';
 import { Section, Title } from './styled';
 import Content from '../../components/Content';
-import content from '../../jsons/youtube-videos-mock.json';
 
 function HomePage() {
   const sectionRef = useRef(null);
-  const items = content.items.slice(1);
+  const {
+    state: { videos, loadingVideos, errorVideos },
+  } = useContext(Context);
 
   return (
     <Section className="homepage" ref={sectionRef}>
       <Title>Welcome to my challenge #1!</Title>
-      <Content items={items} />
+      {errorVideos && <p style={{ color: 'red' }}>{errorVideos}</p>}
+      {loadingVideos ? <p>Loading videos...</p> : <Content items={videos} />}
     </Section>
   );
 }
