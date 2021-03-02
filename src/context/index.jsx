@@ -1,9 +1,9 @@
 import React, { useReducer, createContext } from 'react';
-import mockContent from '../jsons/youtube-videos-mock.json';
+import mockContent from '../jsons/youtube-videos-mock-2.json';
 
 export const Context = createContext();
 
-const data = mockContent.items.map((item) => item.snippet).slice(1);
+const data = mockContent.items;
 
 const INITIAL_STATE = {
   videos: data,

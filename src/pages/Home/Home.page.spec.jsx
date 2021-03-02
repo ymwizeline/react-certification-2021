@@ -11,6 +11,6 @@ describe('Home page', () => {
 
   it('shows an h1 title', () => {
     const { getByText } = render(<Home />);
-    expect(getByText('Welcome to my challenge #1!').tagName).toBe('H1');
+    expect(getByText('Welcome to my challenge #3!').tagName).toBe('H1');
   });
 });

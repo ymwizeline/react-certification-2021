@@ -30,6 +30,6 @@ export const useYoutube = (search) => {
         }
       );
     };
-    getData();
+    if (search) getData();
   }, [search, dispatch]);
 };
