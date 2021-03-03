@@ -4,7 +4,7 @@ import { Form, Input, MagnifyingGlass } from './styled';
 
 const SearchBar = () => {
   const formRef = useRef(null);
-  const [inputValue, setInputValue] = useState('wizeline');
+  const [inputValue, setInputValue] = useState('');
   const [search, setSearch] = useState(null);
 
   useYoutube(search);
