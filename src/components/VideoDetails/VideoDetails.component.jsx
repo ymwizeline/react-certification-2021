@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import { Context } from '../../context';
 import VideoPlayer from '../VideoPlayer';
+import SimilarVideo from '../SimilarVideo';
 import { useVideoDetails } from '../../utils/hooks/useVideoDetails';
 import { getEmbeddedLink } from '../../utils/fns';
-import { Container, Button } from './styled';
+import { Container, PlayerContainer, SimilarContainer, Title, Button } from './styled';
 
 const VideoDetails = ({ id }) => {
-  const { videoDetails } = useVideoDetails(id);
+  const { videoDetails, similar } = useVideoDetails(id);
   const { dispatch } = useContext(Context);
 
   const goBack = () => {
@@ -16,17 +17,27 @@ const VideoDetails = ({ id }) => {
   };
   return (
     <Container>
-      <Button type="button" onClick={goBack}>
-        Return
-      </Button>
-      {videoDetails ? (
-        <VideoPlayer
-          src={getEmbeddedLink(videoDetails.link)}
-          title={videoDetails.title}
-        />
-      ) : (
-        <p>Loading player...</p>
-      )}
+      <PlayerContainer>
+        {videoDetails ? (
+          <>
+            <VideoPlayer
+              src={getEmbeddedLink(videoDetails.link)}
+              title={videoDetails.title}
+            />
+            <Title>{videoDetails.title}</Title>
+          </>
+        ) : (
+          <p>Loading player...</p>
+        )}
+
+        <Button type="button" onClick={goBack}>
+          Go back
+        </Button>
+      </PlayerContainer>
+
+      <SimilarContainer>
+        {similar && similar.map((item) => <SimilarVideo key={item.id} data={item} />)}
+      </SimilarContainer>
     </Container>
   );
 };
