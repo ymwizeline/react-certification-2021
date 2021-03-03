@@ -1,6 +1,7 @@
 import { useEffect, useContext } from 'react';
 import youtubeSearch from 'youtube-search';
 import { Context } from '../../context';
+import { filterByResultType } from '../fns';
 
 export const useYoutube = (search) => {
   const { dispatch } = useContext(Context);
@@ -22,11 +23,12 @@ export const useYoutube = (search) => {
               type: 'ERROR_VIDEOS',
               payload: error.message,
             });
-          else
+          else {
             dispatch({
               type: 'VIDEOS',
-              payload: data,
+              payload: filterByResultType(data, 'video'),
             });
+          }
         }
       );
     };

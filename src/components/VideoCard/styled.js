@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Card = styled.div`
+  cursor: pointer;
   margin: 15px;
   border-radius: 5px;
   width: 340px;
@@ -9,6 +10,11 @@ export const Card = styled.div`
   border-left: 1px solid #ededed;
   border-right: 1px solid #ededed;
   border-bottom: 2px solid #d3d3d3;
+  transition: all 0.5s;
+
+  &:hover {
+    transform: scale(1.03);
+  }
 `;
 
 export const Image = styled.img`
