@@ -41,6 +41,7 @@ exports[`SearchBar component renders properly 1`] = `
 >
   <div
     className="c1"
+    onClick={[Function]}
   >
     <span
       aria-label="magnifying-glass"

@@ -16,7 +16,7 @@ const SearchBar = () => {
 
   return (
     <Form ref={formRef} onSubmit={handleForm}>
-      <MagnifyingGlass>
+      <MagnifyingGlass onClick={handleForm}>
         <span role="img" aria-label="magnifying-glass">
           🔎
         </span>
