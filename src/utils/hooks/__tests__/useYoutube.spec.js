@@ -19,12 +19,13 @@ beforeEach(() => {
 afterEach(() => {
   useContextMock.mockReset();
   mockDispatch.mockReset();
+  youtubeSearch.mockReset();
   React.useContext = realUseContext;
 });
 
 describe('useYoutube hook', () => {
   it('uses useContext React hook', () => {
-    renderHook(() => useYoutube(''));
+    renderHook(() => useYoutube('search'));
     expect(useContextMock).toHaveBeenCalledTimes(1);
   });
 
@@ -36,9 +37,10 @@ describe('useYoutube hook', () => {
     });
   });
 
-  it('calls the API if value is received', () => {
+  it('calls the API correctly if value is received', () => {
     renderHook(() => useYoutube('search'));
     expect(youtubeSearch).toHaveBeenCalledTimes(1);
+    expect(youtubeSearch.mock.calls[0][0]).toBe('search');
   });
 
   it('does not call the API if no value is received', () => {
