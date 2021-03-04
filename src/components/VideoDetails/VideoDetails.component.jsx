@@ -21,8 +21,8 @@ const VideoDetails = ({ id }) => {
       <PlayerContainer>
         {videoDetails ? (
           <>
-            <VideoPlayer src={link} title={videoDetails.title} />
-            <Title>{videoDetails.title}</Title>
+            <VideoPlayer src={link} title={videoDetails.snippet.title} />
+            <Title>{videoDetails.snippet.title}</Title>
           </>
         ) : (
           <p>Loading player...</p>

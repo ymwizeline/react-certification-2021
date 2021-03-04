@@ -29,11 +29,13 @@ export const SimilarContainer = styled.div`
   }
 `;
 
-export const Title = styled.h2``;
+export const Title = styled.h2`
+  text-align: left;
+`;
 
 export const Button = styled.button`
   width: 150px;
   height: 40px;
-  margin-top: 30px;
+  margin-top: 10px;
   cursor: pointer;
 `;
