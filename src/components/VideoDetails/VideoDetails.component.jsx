@@ -3,12 +3,13 @@ import { Context } from '../../context';
 import VideoPlayer from '../VideoPlayer';
 import SimilarVideo from '../SimilarVideo';
 import { useVideoDetails } from '../../utils/hooks/useVideoDetails';
-import { getEmbeddedLink } from '../../utils/fns';
 import { Container, PlayerContainer, SimilarContainer, Title, Button } from './styled';
 
 const VideoDetails = ({ id }) => {
   const { videoDetails, similar } = useVideoDetails(id);
   const { dispatch } = useContext(Context);
+
+  const link = `https://www.youtube.com/embed/${id}`;
 
   const goBack = () => {
     dispatch({
@@ -20,10 +21,7 @@ const VideoDetails = ({ id }) => {
       <PlayerContainer>
         {videoDetails ? (
           <>
-            <VideoPlayer
-              src={getEmbeddedLink(videoDetails.link)}
-              title={videoDetails.title}
-            />
+            <VideoPlayer src={link} title={videoDetails.title} />
             <Title>{videoDetails.title}</Title>
           </>
         ) : (
@@ -36,7 +34,7 @@ const VideoDetails = ({ id }) => {
       </PlayerContainer>
 
       <SimilarContainer>
-        {similar && similar.map((item) => <SimilarVideo key={item.id} data={item} />)}
+        {similar && similar.map((item) => <SimilarVideo key={item.etag} data={item} />)}
       </SimilarContainer>
     </Container>
   );

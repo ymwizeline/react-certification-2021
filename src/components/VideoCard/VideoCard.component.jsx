@@ -5,11 +5,13 @@ import { formatTitleWithApostrophe } from '../../utils/fns';
 
 const VideoCard = ({ data }) => {
   const {
-    id,
-    title,
-    description,
-    thumbnails: {
-      high: { url },
+    id: { videoId: id },
+    snippet: {
+      title,
+      description,
+      thumbnails: {
+        high: { url },
+      },
     },
   } = data;
 

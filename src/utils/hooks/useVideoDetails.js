@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { Context } from '../../context';
 
-export const useVideoDetails = (videoId) => {
+export const useVideoDetails = (id) => {
   const {
     state: { videos },
   } = useContext(Context);
@@ -9,14 +9,14 @@ export const useVideoDetails = (videoId) => {
   const [similar, setSimilar] = useState(null);
 
   useEffect(() => {
-    const data = videos.filter(({ id }) => id === videoId);
+    const data = videos.filter(({ id: { videoId } }) => id === videoId);
     setVideoDetails(data[0]);
-  }, [videos, videoId]);
+  }, [videos, id]);
 
   useEffect(() => {
-    const data = videos.filter(({ id }) => id !== videoId);
+    const data = videos.filter(({ id: { videoId } }) => id !== videoId);
     setSimilar(data);
-  }, [videos, videoId]);
+  }, [videos, id]);
 
   return { videoDetails, similar };
 };

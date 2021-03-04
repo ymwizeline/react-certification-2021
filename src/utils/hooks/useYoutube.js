@@ -1,5 +1,5 @@
 import { useEffect, useContext, useState } from 'react';
-import youtubeSearch from 'youtube-search';
+import axios from 'axios';
 import { Context } from '../../context';
 import { filterByResultType } from '../fns';
 
@@ -13,17 +13,17 @@ export const useYoutube = (search) => {
       dispatch({
         type: 'LOADING_VIDEOS',
       });
-      await youtubeSearch(
-        search,
-        {
-          key: process.env.REACT_APP_GOOGLE_API_KEY,
-          maxResults: 24,
-        },
-        (err, data) => {
-          if (err) setError(err);
-          else setVideos(data);
-        }
-      );
+      try {
+        const {
+          data: { items },
+        } = await axios.get(
+          `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=24&key=${process.env.REACT_APP_GOOGLE_API_KEY}&q=${search}`
+        );
+        setVideos(items);
+      } catch (err) {
+        console.error(err);
+        setError(err);
+      }
     };
     if (search) getData();
   }, [search, dispatch]);

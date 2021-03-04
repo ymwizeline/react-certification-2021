@@ -1,7 +1,7 @@
 import React from 'react';
 import { renderHook } from '@testing-library/react-hooks';
 import { useVideoDetails } from '../useVideoDetails';
-import mockData from '../../../jsons/youtube-videos-mock-2.json';
+import mockData from '../../../jsons/youtube-videos-mock.json';
 
 let realUseContext;
 let useContextMock;
@@ -26,9 +26,11 @@ describe('useVideoDetails hook', () => {
   });
 
   it('returns the correct data', () => {
-    const { id } = mockData.items[0];
+    const {
+      id: { videoId: id },
+    } = mockData.items[1];
     const { result } = renderHook(() => useVideoDetails(id));
-    expect(result.current.videoDetails.id).toBe(id);
+    expect(result.current.videoDetails.id.videoId).toBe(id);
     expect(result.current.similar.length).toBe(mockData.items.length - 1);
   });
 });

@@ -10,14 +10,8 @@ function formatTitleWithApostrophe(title) {
   return result;
 }
 
-function getEmbeddedLink(url) {
-  let result = url;
-  result = result.replace('watch?v=', 'embed/');
-  return result;
-}
-
 function filterByResultType(data, type) {
-  return data.filter(({ kind }) => kind === `youtube#${type}`);
+  return data.filter(({ id: { kind } }) => kind === `youtube#${type}`);
 }
 
-export { random, formatTitleWithApostrophe, getEmbeddedLink, filterByResultType };
+export { random, formatTitleWithApostrophe, filterByResultType };

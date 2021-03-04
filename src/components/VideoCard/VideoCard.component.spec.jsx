@@ -4,12 +4,14 @@ import VideoCard from './VideoCard.component';
 import ContextProvider from '../../context';
 
 const data = {
-  id: '1234',
-  title: 'Mock component',
-  description: 'Mock description',
-  thumbnails: {
-    high: {
-      url: 'https://mockimage.com',
+  id: { videoId: '1234' },
+  snippet: {
+    title: 'Mock component',
+    description: 'Mock description',
+    thumbnails: {
+      high: {
+        url: 'https://mockimage.com',
+      },
     },
   },
 };

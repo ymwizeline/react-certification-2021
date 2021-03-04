@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import Content from './Content.component';
-import mockData from '../../jsons/youtube-videos-mock-2.json';
+import mockData from '../../jsons/youtube-videos-mock.json';
 import ContextProvider from '../../context';
 
 describe('Content component', () => {

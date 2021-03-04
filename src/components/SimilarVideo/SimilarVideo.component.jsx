@@ -4,10 +4,12 @@ import { useSelectVideo } from '../../utils/hooks/useSelectVideo';
 
 const SimilarVideo = ({ data }) => {
   const {
-    id,
-    title,
-    thumbnails: {
-      high: { url },
+    id: { videoId: id },
+    snippet: {
+      title,
+      thumbnails: {
+        high: { url },
+      },
     },
   } = data;
 
