@@ -2,15 +2,18 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import Layout from './Layout.component';
 import AuthProvider from '../../providers/Auth';
+import ContextProvider from '../../context';
 import 'jest-styled-components';
 
 describe('Layout component', () => {
   it('is contained in a main tag', () => {
     const element = renderer
       .create(
-        <AuthProvider>
-          <Layout />
-        </AuthProvider>
+        <ContextProvider>
+          <AuthProvider>
+            <Layout />
+          </AuthProvider>
+        </ContextProvider>
       )
       .toJSON();
 
@@ -20,9 +23,11 @@ describe('Layout component', () => {
   it('takes 100% of both the viewport width and height', () => {
     const element = renderer
       .create(
-        <AuthProvider>
-          <Layout />
-        </AuthProvider>
+        <ContextProvider>
+          <AuthProvider>
+            <Layout />
+          </AuthProvider>
+        </ContextProvider>
       )
       .toJSON();
 
