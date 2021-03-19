@@ -23,4 +23,5 @@ export const Title = styled.h3`
   font-size: 0.9rem;
   font-weight: normal;
   margin-top: 0;
+  color: ${({ theme }) => theme.main};
 `;

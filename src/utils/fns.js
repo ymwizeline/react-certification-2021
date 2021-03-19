@@ -4,7 +4,7 @@ function random(limit) {
 
 function formatTitleWithApostrophe(title) {
   let result = title;
-  while (title.includes('&#39;')) {
+  while (result.includes('&#39;')) {
     result = result.replace('&#39;', "'");
   }
   return result;

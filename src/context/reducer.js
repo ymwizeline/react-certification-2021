@@ -30,6 +30,11 @@ export default function (state, { type, payload }) {
         ...state,
         videoSelected: null,
       };
+    case 'CHANGE_THEME':
+      return {
+        ...state,
+        darkModeOn: payload,
+      };
     default:
       return state;
   }

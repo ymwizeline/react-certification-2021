@@ -8,4 +8,5 @@ export default {
   loadingVideos: false,
   errorVideos: false,
   videoSelected: null,
+  darkModeOn: false,
 };
