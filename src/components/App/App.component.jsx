@@ -5,6 +5,7 @@ import GlobalStyle from './styled';
 import AuthProvider from '../../providers/Auth';
 import ThemeProvider from '../../providers/Theme';
 import HomePage from '../../pages/Home';
+import VideoDetails from '../../pages/VideoDetails';
 import LoginPage from '../../pages/Login';
 import NotFound from '../../pages/NotFound';
 import SecretPage from '../../pages/Secret';
@@ -23,6 +24,7 @@ function App() {
                 <Route exact path="/">
                   <HomePage />
                 </Route>
+                <Route exact path="/video/:id" component={VideoDetails} />
                 <Route exact path="/login">
                   <LoginPage />
                 </Route>

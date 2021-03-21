@@ -9,4 +9,5 @@ export default {
   errorVideos: false,
   videoSelected: null,
   darkModeOn: false,
+  menuOpen: false,
 };

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-export const Card = styled.div`
+export const Card = styled(Link)`
   margin-bottom: 15px;
   cursor: pointer;
 

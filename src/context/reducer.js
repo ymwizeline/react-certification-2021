@@ -20,20 +20,15 @@ export default function (state, { type, payload }) {
         loadingVideos: false,
         errorVideos: `Error while loading the videos (${payload}). Please try again later.`,
       };
-    case 'OPEN_VIDEO':
-      return {
-        ...state,
-        videoSelected: payload,
-      };
-    case 'CLOSE_VIDEO':
-      return {
-        ...state,
-        videoSelected: null,
-      };
     case 'CHANGE_THEME':
       return {
         ...state,
         darkModeOn: payload,
+      };
+    case 'OPEN_MENU':
+      return {
+        ...state,
+        menuOpen: payload,
       };
     default:
       return state;

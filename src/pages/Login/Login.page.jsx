@@ -10,8 +10,13 @@ function LoginPage() {
 
   function authenticate(event) {
     event.preventDefault();
-    login();
-    history.push('/secret');
+    const username = document.querySelector('#username').value;
+    const password = document.querySelector('#password').value;
+    if (username === 'wizeline' && password === 'Rocks!') {
+      login();
+      history.push('/secret');
+      /* eslint-disable-next-line no-alert */
+    } else alert('Username or password invalid');
   }
 
   return (
@@ -21,13 +26,13 @@ function LoginPage() {
         <div className="form-group">
           <label htmlFor="username">
             <strong>username </strong>
-            <input required type="text" id="username" />
+            <input required type="text" id="username" name="username" />
           </label>
         </div>
         <div className="form-group">
           <label htmlFor="password">
             <strong>password </strong>
-            <input required type="password" id="password" />
+            <input required type="password" id="password" name="username" />
           </label>
         </div>
         <button type="submit">login</button>

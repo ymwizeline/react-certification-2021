@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card, Thumbnail, Title } from './styled';
-import { useSelectVideo } from '../../utils/hooks/useSelectVideo';
 
 const SimilarVideo = ({ data }) => {
   const {
@@ -13,10 +12,8 @@ const SimilarVideo = ({ data }) => {
     },
   } = data;
 
-  const selectVideo = useSelectVideo(id);
-
   return (
-    <Card onClick={selectVideo}>
+    <Card to={`/video/${id}`}>
       <Thumbnail src={url} alt={title} />
       <Title>{title}</Title>
     </Card>

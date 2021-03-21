@@ -29,7 +29,7 @@ export const SimilarContainer = styled.div`
   }
 `;
 
-export const Title = styled.h2`
+export const VideoTitle = styled.h2`
   text-align: left;
   color: ${({ theme }) => theme.main};
 `;
