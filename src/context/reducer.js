@@ -5,7 +5,6 @@ export default function (state, { type, payload }) {
         ...state,
         loadingVideos: true,
         errorVideos: false,
-        videoSelected: null,
       };
     case 'VIDEOS':
       return {

@@ -12,6 +12,7 @@ const Container = styled.div`
   padding: 20px;
   display: flex;
   flex-direction: column;
+  z-index: 2;
 `;
 
 const Go = styled(Link)``;

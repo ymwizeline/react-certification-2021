@@ -7,7 +7,6 @@ export default {
   videos: filterByResultType(data, 'video'),
   loadingVideos: false,
   errorVideos: false,
-  videoSelected: null,
   darkModeOn: false,
   menuOpen: false,
 };

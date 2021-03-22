@@ -1,7 +1,8 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import VideoDetails from './VideoDetails.component';
+import VideoDetails from './VideoDetails.page';
 import ContextProvider from '../../context';
+import AuthProvider from '../../providers/Auth';
 import { useVideoDetails } from '../../utils/hooks/useVideoDetails';
 import mockData from '../../jsons/youtube-videos-mock.json';
 
@@ -12,11 +13,15 @@ useVideoDetails.mockImplementation(() => ({
   videoDetails: mockItem,
 }));
 
+const props = { match: { params: { id: mockItem.id.videoId } } };
+
 describe('VideoDetails component', () => {
   it('renders properly', () => {
     const { container } = render(
       <ContextProvider>
-        <VideoDetails id={mockItem.id.videoId} />
+        <AuthProvider>
+          <VideoDetails {...props} />
+        </AuthProvider>
       </ContextProvider>
     );
     expect(container).toMatchSnapshot();

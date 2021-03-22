@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VideoDetails component renders properly 1`] = `
+<div>
+  <section
+    class="sc-jSgupP gMkJrr homepage"
+  >
+    <h1
+      class="sc-gKsewC jwTLYb"
+    >
+      Video details
+    </h1>
+    <div
+      class="sc-iBPRYJ kSJANn"
+    >
+      <div
+        class="sc-fubCfw ccLhuW"
+      >
+        <div
+          class="sc-bdfBwQ kKsUrJ"
+        >
+          <iframe
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen=""
+            class="sc-gsTCUz jINteo"
+            frameborder="0"
+            src="https://www.youtube.com/embed/nmXMgqjQzls"
+            title="Video Tour | Welcome to Wizeline Guadalajara"
+          />
+        </div>
+        <h2
+          class="sc-jrAGrp dMKXCW"
+        >
+          Video Tour | Welcome to Wizeline Guadalajara
+        </h2>
+        <button
+          class="sc-kEjbxe gNCMqM"
+          type="button"
+        >
+          Go to Homepage
+        </button>
+      </div>
+      <div
+        class="sc-pFZIQ dyfyFe"
+      />
+    </div>
+  </section>
+</div>
+`;

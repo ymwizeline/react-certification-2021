@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import Content from './Content.component';
 import mockData from '../../jsons/youtube-videos-mock.json';
@@ -10,7 +11,9 @@ describe('Content component', () => {
     const element = renderer
       .create(
         <ContextProvider>
-          <Content items={items} />
+          <BrowserRouter>
+            <Content items={items} />
+          </BrowserRouter>
         </ContextProvider>
       )
       .toJSON();
