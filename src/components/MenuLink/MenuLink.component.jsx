@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
 
 import { Context } from '../../context';
+import { Go } from './styled';
 
 const MenuLink = ({ children, ...props }) => {
   const { dispatch } = useContext(Context);
@@ -9,9 +9,9 @@ const MenuLink = ({ children, ...props }) => {
   const closeMenu = () => dispatch({ type: 'OPEN_MENU', payload: false });
 
   return (
-    <Link onClick={closeMenu} {...props}>
+    <Go onClick={closeMenu} {...props}>
       {children}
-    </Link>
+    </Go>
   );
 };
 
