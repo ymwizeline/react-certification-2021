@@ -29,11 +29,19 @@ exports[`SearchBar component renders properly 1`] = `
   }
 }
 
+@media (max-width:768px) {
+  .c1 {
+    left: 25px;
+  }
+}
+
 <form
   className="c0"
+  onSubmit={[Function]}
 >
   <div
     className="c1"
+    onClick={[Function]}
   >
     <span
       aria-label="magnifying-glass"
@@ -44,6 +52,8 @@ exports[`SearchBar component renders properly 1`] = `
   </div>
   <input
     className="c2"
+    onChange={[Function]}
+    value=""
   />
 </form>
 `;

@@ -26,4 +26,8 @@ export const MagnifyingGlass = styled.div`
   position: absolute;
   font-size: 1.4rem;
   left: 40px;
+
+  @media (max-width: 768px) {
+    left: 25px;
+  }
 `;

@@ -1,14 +1,20 @@
 import styled from 'styled-components';
 
 export const Card = styled.div`
+  cursor: pointer;
   margin: 15px;
   border-radius: 5px;
   width: 340px;
   height: 340px;
   overflow: hidden;
-  border-left: 1px solid #ededed;
-  border-right: 1px solid #ededed;
-  border-bottom: 2px solid #d3d3d3;
+  border-left: 1px solid ${({ theme }) => theme.mainFade};
+  border-right: 1px solid ${({ theme }) => theme.mainFade};
+  border-bottom: 2px solid ${({ theme }) => theme.main};
+  transition: all 0.5s;
+
+  &:hover {
+    transform: scale(1.03);
+  }
 `;
 
 export const Image = styled.img`
