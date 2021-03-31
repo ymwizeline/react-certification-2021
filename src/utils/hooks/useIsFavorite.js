@@ -8,6 +8,7 @@ export const useIsFavorite = (videoId) => {
   useEffect(() => {
     const favorites = storage.get(FAVORITES_STORAGE_KEY);
     if (favorites && favorites[videoId]) setIsFavorite(true);
+    else setIsFavorite(false);
   }, [videoId]);
 
   return { isFavorite, setIsFavorite };

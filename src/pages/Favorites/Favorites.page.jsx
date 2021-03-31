@@ -9,7 +9,7 @@ const Favorites = () => {
     <Section className="favorites">
       <Title>Favorites</Title>
       {favorites && Object.values(favorites).length ? (
-        <Content items={Object.values(favorites)} favoriteView />
+        <Content items={Object.values(favorites)} />
       ) : (
         <p>No favorites for now...</p>
       )}

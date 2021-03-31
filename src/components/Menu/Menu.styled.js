@@ -7,6 +7,7 @@ const Container = styled.div`
   background-color: ${({ theme }) => theme.main};
   color: ${({ theme }) => theme.secondary};
   width: 10vw;
+  min-width: 200px;
   display: flex;
   flex-direction: column;
   z-index: 2;

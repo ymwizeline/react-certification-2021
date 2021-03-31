@@ -11,7 +11,7 @@ function HomePage() {
 
   return (
     <Section className="homepage" ref={sectionRef}>
-      <Title>Welcome to my challenge #3!</Title>
+      <Title>Welcome to my final challenge!</Title>
       {errorVideos && <p style={{ color: 'red' }}>{errorVideos}</p>}
       {loadingVideos ? <p>Loading videos...</p> : <Content items={videos} />}
     </Section>

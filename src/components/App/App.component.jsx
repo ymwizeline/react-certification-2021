@@ -29,7 +29,6 @@ function App() {
                   <Favorites />
                 </Private>
                 <Route exact path="/video/:id" component={VideoDetails} />
-                <Private exact path="/video/:id/:favorite" component={VideoDetails} />
                 <Route exact path="/login">
                   <LoginPage />
                 </Route>

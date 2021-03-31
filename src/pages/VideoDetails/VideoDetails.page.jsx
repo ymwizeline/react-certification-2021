@@ -19,7 +19,7 @@ import {
 
 const VideoDetails = ({
   match: {
-    params: { id, favorite },
+    params: { id },
   },
 }) => {
   const { videoDetails, similar } = useVideoDetails(id);
@@ -79,12 +79,12 @@ const VideoDetails = ({
 
         <SimilarContainer>
           {favorites &&
-            favorite &&
+            isFavorite &&
             Object.values(favorites)
               .filter(({ id: { videoId } }) => videoId !== id)
               .map((item) => <SimilarVideo key={item.etag} data={item} />)}
           {similar &&
-            !favorite &&
+            !isFavorite &&
             similar.map((item) => <SimilarVideo key={item.etag} data={item} />)}
         </SimilarContainer>
       </Container>

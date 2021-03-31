@@ -27,6 +27,6 @@ describe('Home page', () => {
         </BrowserRouter>
       </ContextProvider>
     );
-    expect(getByText('Welcome to my challenge #3!').tagName).toBe('H1');
+    expect(getByText('Welcome to my final challenge!').tagName).toBe('H1');
   });
 });
