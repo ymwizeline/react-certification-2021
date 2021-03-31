@@ -1,10 +1,12 @@
 import { useEffect, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { Context } from '../../context';
 import { filterByResultType } from '../fns';
 
 export const useYoutube = (search) => {
   const { dispatch } = useContext(Context);
+  const history = useHistory();
 
   useEffect(() => {
     const getData = async () => {
@@ -21,6 +23,7 @@ export const useYoutube = (search) => {
           type: 'VIDEOS',
           payload: filterByResultType(items, 'video'),
         });
+        history.push('/');
       } catch (error) {
         console.error(error);
         dispatch({
@@ -30,5 +33,5 @@ export const useYoutube = (search) => {
       }
     };
     if (search) getData();
-  }, [search, dispatch]);
+  }, [search, dispatch, history]);
 };

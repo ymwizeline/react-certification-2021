@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import { render } from '@testing-library/react';
 import Home from './Home.page';
@@ -9,7 +10,9 @@ describe('Home page', () => {
     const element = renderer
       .create(
         <ContextProvider>
-          <Home />
+          <BrowserRouter>
+            <Home />
+          </BrowserRouter>
         </ContextProvider>
       )
       .toJSON();
@@ -19,9 +22,11 @@ describe('Home page', () => {
   it('shows an h1 title', () => {
     const { getByText } = render(
       <ContextProvider>
-        <Home />
+        <BrowserRouter>
+          <Home />
+        </BrowserRouter>
       </ContextProvider>
     );
-    expect(getByText('Welcome to my challenge #3!').tagName).toBe('H1');
+    expect(getByText('Welcome to my final challenge!').tagName).toBe('H1');
   });
 });

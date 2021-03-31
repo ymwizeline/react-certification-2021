@@ -22,7 +22,7 @@ afterEach(() => {
 describe('useVideoDetails hook', () => {
   it('uses the React useContext hook', () => {
     renderHook(() => useVideoDetails(1));
-    expect(useContextMock).toHaveBeenCalledTimes(2);
+    expect(useContextMock).toHaveBeenCalledTimes(1);
   });
 
   it('returns the correct data', () => {

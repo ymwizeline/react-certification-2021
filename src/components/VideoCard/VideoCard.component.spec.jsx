@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { render } from '@testing-library/react';
 import VideoCard from './VideoCard.component';
 import ContextProvider from '../../context';
@@ -20,7 +21,9 @@ describe('VideoCard component', () => {
   it('contains an image tag', () => {
     const { getByAltText } = render(
       <ContextProvider>
-        <VideoCard data={data} />
+        <BrowserRouter>
+          <VideoCard data={data} />
+        </BrowserRouter>
       </ContextProvider>
     );
 
@@ -30,7 +33,9 @@ describe('VideoCard component', () => {
   it('contains an h2 tag', () => {
     const { getByText } = render(
       <ContextProvider>
-        <VideoCard data={data} />
+        <BrowserRouter>
+          <VideoCard data={data} />
+        </BrowserRouter>
       </ContextProvider>
     );
 
@@ -40,7 +45,9 @@ describe('VideoCard component', () => {
   it('contains a p tag', () => {
     const { getByText } = render(
       <ContextProvider>
-        <VideoCard data={data} />
+        <BrowserRouter>
+          <VideoCard data={data} />
+        </BrowserRouter>
       </ContextProvider>
     );
 

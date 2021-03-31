@@ -3,7 +3,7 @@ function random(limit) {
 }
 
 function formatTitleWithApostrophe(title) {
-  return title.replaceAll('&#39;', "'");
+  return title.split('&#39;').join("'");
 }
 
 function filterByResultType(data, type) {
