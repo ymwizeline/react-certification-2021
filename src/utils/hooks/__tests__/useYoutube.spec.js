@@ -9,10 +9,20 @@ const mockItems = filterByResultType(mockData.items, 'video');
 
 let realUseContext;
 let realAxiosGet;
-let mockDispatch;
+const mockDispatch = jest.fn();
+const mockHistoryPush = jest.fn();
+
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useHistory: () => ({
+    push: mockHistoryPush,
+  }),
+}));
 
 beforeEach(() => {
-  mockDispatch = jest.fn();
+  mockDispatch.mockReset();
+  mockHistoryPush.mockReset();
+
   realUseContext = React.useContext;
   React.useContext = jest.fn().mockImplementation(() => ({
     dispatch: mockDispatch,
@@ -25,7 +35,6 @@ beforeEach(() => {
 });
 
 afterEach(() => {
-  mockDispatch.mockReset();
   React.useContext = realUseContext;
   axios.get = realAxiosGet;
 });
