@@ -7,6 +7,7 @@ const SearchBar = () => {
   const [inputValue, setInputValue] = useState('');
   const [search, setSearch] = useState(null);
 
+  // Use Youtube API everytime the search changes
   useYoutube(search);
 
   const handleForm = (e) => {
